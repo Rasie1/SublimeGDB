@@ -194,6 +194,10 @@
     // Whether to log the raw data read from and written to the gdb session and the inferior program.
     "debug": true,
 
+    // Path to C++ language file
+
+    "cpp_language_file" : "Packages/C++/C++.tmLanguage",
+
     // Disables showing the error message dialog when something goes wrong
     "i_know_how_to_use_gdb_thank_you_very_much": false
 }

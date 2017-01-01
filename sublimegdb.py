@@ -638,7 +638,7 @@ class GDBVariablesView(GDBView):
 
     def open(self):
         super(GDBVariablesView, self).open()
-        self.set_syntax("Packages/C++/C++.tmLanguage")
+        self.set_syntax(get_setting("cpp_language_file", "Packages/C++/C++.tmLanguage"))
         if self.is_open() and gdb_run_status == "stopped":
             self.update_variables(False)
 
@@ -797,7 +797,7 @@ class GDBCallstackView(GDBView):
 
     def open(self):
         super(GDBCallstackView, self).open()
-        self.set_syntax("Packages/C++/C++.tmLanguage")
+        self.set_syntax(get_setting("cpp_language_file", "Packages/C++/C++.tmLanguage"))
         if self.is_open() and gdb_run_status == "stopped":
             self.update_callstack()
 
@@ -873,7 +873,7 @@ class GDBThreadsView(GDBView):
 
     def open(self):
         super(GDBThreadsView, self).open()
-        self.set_syntax("Packages/C++/C++.tmLanguage")
+        self.set_syntax(get_setting("cpp_language_file", "Packages/C++/C++.tmLanguage"))
         if self.is_open() and gdb_run_status == "stopped":
             self.update_threads()
 
