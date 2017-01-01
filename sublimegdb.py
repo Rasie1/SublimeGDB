@@ -1512,8 +1512,8 @@ def programio(pty, tty):
                 log_debug("programoutput: %s" % line)
                 gdb_console_view.add_line(line, False)
             else:
-                if gdb_process.poll() is not None:
-                    break
+                if gdb_process is not None and gdb_process.poll() is not None:
+                        break
                 time.sleep(0.1)
         except:
             traceback.print_exc()
