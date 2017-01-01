@@ -137,6 +137,20 @@
         ]
     },
 
+    "debugger_in_separate_window": true,
+
+    "separate_window_layout":
+    {
+        "cols": [0.0, 0.33, 0.66, 1.0],
+        "rows": [0.0, 1.0],
+        "cells":
+        [ // c1 r1 c2 r2
+            [0, 0, 1, 1], // -> (0.00, 0.0), (0.33, 1.00)
+            [1, 0, 2, 1], // -> (0.33, 0.0), (0.66, 1.00)
+            [2, 0, 3, 1]  // -> (0.66, 0.0), (1.00, 1.00)
+        ]
+    },
+
     // visual stuff
     "breakpoint_scope": "keyword.gdb",
     "breakpoint_icon": "circle",
@@ -197,6 +211,29 @@
     // Path to C++ language file
 
     "cpp_language_file" : "Packages/C++/C++.tmLanguage",
+    
+    // Enables pretty printing. For example:
+    //
+    // std::string testStdString = "Foobar"
+    // -std::vector<int, std::allocator<int> > someVectorOfInt = {...}
+    //  int [0] = 1
+    //  int [1] = 2
+    //  int [2] = 3
+    //  int [3] = 4
+    //
+    // To enable this feature, it should be enabled is gdb too, see this: https://sourceware.org/gdb/wiki/STLSupport
+    // You should checkout latest printers:
+    // svn co svn://gcc.gnu.org/svn/gcc/trunk/libstdc++-v3/python
+    // And add to ~/.gdbinit the following:
+    //
+    // python
+    // import sys
+    // sys.path.insert(0, '<path to "python" directory>')
+    // from libstdcxx.v6.printers import register_libstdcxx_printers
+    // register_libstdcxx_printers (None)
+    // end
+    //
+    "enable_pretty_printing": true,
 
     // Disables showing the error message dialog when something goes wrong
     "i_know_how_to_use_gdb_thank_you_very_much": false
